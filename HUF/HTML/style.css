@@ -37,6 +37,27 @@ a {
   list-style: none;
   width: 25%;
   text-align: center;
+  position: relative;
+}
+
+.menu nav ul li a::after {
+position: absolute;
+left: 50%;
+content: '';
+width: 80%;
+height: 1px;
+background: #000000;
+bottom: -8px; /*アンダーラインが現れ始める位置（aタグの下辺からの高さ）*/
+opacity: 0;
+visibility: hidden;
+transition: 0.3s;
+transform: translate(-50%,-50%);
+}
+
+.menu nav ul li a:hover::after {
+visibility: visible;
+bottom: -4px;
+opacity: 1;
 }
 
 .menu nav ul li img {
@@ -142,6 +163,10 @@ a {
   z-index: 3;
 }
 
+.section3 .HUF-item:nth-of-type(2) {
+  padding-bottom: 120px;
+}
+
 .items {
   width: 24%;
   overflow: visible;
@@ -153,7 +178,7 @@ a {
 }
 
 .image_mouseover_1:hover {
-  transform: scale(1.2,1.2);
+  transform: scale(1.1,1.1);
   transition-duration: 0.5s;
 }
 
@@ -232,10 +257,18 @@ a {
 
 .btn {
   font-size: 18px;
-  margin-top: 120px;
+  color: #000000;
   background-color: white;
   width: 30%;
-  padding: 15px 0;
+  padding: 10px 0;
+  margin: 0 auto;
+  border: 1px solid #000000;
+  position: relative;
+  z-index: 3;
+}
+
+.btn a {
+  padding: 10px 120px;
 }
 
 .footer01 {
@@ -248,4 +281,35 @@ a {
 .img1 {
   width: 246px;
   height: 246px;
+}
+
+.more-title {
+  text-align: center;
+  margin: 100px 0;
+}
+
+.more-title h1 {
+  font-size: 30px;
+}
+
+.fadeUpTrigger{
+  opacity: 0;
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
